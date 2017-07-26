@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const {PORT} = require('./include/config');
 const {VERIFY_TOKEN} = require('./include/config');
 const {recievedMessage} = require('./recieved/recievedMessage');
+const {recievedPostBack} = require('./recieved/recievedPostBack');
 
 var app = express();
 
@@ -51,6 +52,10 @@ app.post('/webhook', (req, res) => {
 
           // On fait appel à une fonction qui va gérer la reception d'un message event
           recievedMessage(event);
+        } else if (event.postback) {
+
+          // On fait appel à une fonction qui gère la reception de tous les postbacks
+          recievedPostBack(event);
         } else {
 
           // Rien à faire, event inconnu
