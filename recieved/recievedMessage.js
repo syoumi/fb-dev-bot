@@ -2,6 +2,7 @@
 
 const {sendGenericMessage} = require('./../send/sendGenericMessage');
 const {sendTextMessage} = require('./../send/sendTextMessage');
+const {sendQuickReplies} = require('./../send/sendQuickReplies');
 const {sendTypingOn} = require('./../send/sendTypingOnOff');
 const {sendTypingOff} = require('./../send/sendTypingOnOff');
 
@@ -38,6 +39,30 @@ var recievedMessage = (event) => {
       case 'generic':
         // on utilise une fonction qui va s'occuper de répondre avec un generic template
         sendGenericMessage(senderID);
+        break;
+
+      case 'QCM':
+        // on crée un tableau qui maintient les choix et on appelle une fonction qui réponds
+        var choices = [
+          {
+            content_type: 'text',
+            title: 'Nice',
+            postback: 'NICE_CUSTOM_POSTBACK'
+          },
+          {
+            content_type: 'text',
+            title: 'Not bad',
+            postback: 'NOT_BAD_CUSTOM_POSTBACK'
+          },
+          {
+            content_type: 'text',
+            title: 'Not nice',
+            postback: 'NOT_NICE_CUSTOM_POSTBACK'
+          }
+        ];
+
+        sendQuickReplies(senderID);
+
         break;
       default:
         // faire un petit délai pour simuler l'écriture
