@@ -20,6 +20,7 @@ module.exports = {
   VERIFY_TOKEN,
   FB_PAGE_TOKEN,
   PORT,
+  WAITING_BEFORE_PROMPT,
   setWaiting,
   setNotWaiting,
   getWaiting
