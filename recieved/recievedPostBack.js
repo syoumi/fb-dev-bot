@@ -19,3 +19,7 @@ var recievedPostBack = (event) => {
 
   sendTextMessage(senderID, 'Postback recu avec succes');
 };
+
+module.exports = {
+  recievedPostBack
+}
