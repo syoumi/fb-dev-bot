@@ -30,7 +30,7 @@ var callSendAPI = (messageData) => {
       // Si il y avait une erreur HTTP, faire un log
       console.error(`#### Message sent errors ####`);
       // console.error(response);
-      console.error(error.message);
+      console.error(error);
       console.error(`################END MSE######`);
     }
   });
