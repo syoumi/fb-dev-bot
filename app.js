@@ -5,6 +5,7 @@ const {PORT} = require('./include/config');
 const {VERIFY_TOKEN} = require('./include/config');
 const {recievedMessage} = require('./recieved/recievedMessage');
 const {recievedPostBack} = require('./recieved/recievedPostBack');
+const {recievedSeen} = require('./recieved/recievedSeen');
 
 
 var app = express();
