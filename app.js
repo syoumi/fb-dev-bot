@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 9191;
 // Cette fonction est responsable d'effectuer la première verification FB
 
 app.get('/webhook', (req, res) => {
-  if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === VERIFY_TOKEN) {
+  if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.VERIFY_TOKEN) {
       console.log("Validating webhook");
       res.status(200).send(req.query['hub.challenge']);
     } else {
