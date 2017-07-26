@@ -47,7 +47,9 @@ var recievedMessage = (event) => {
         // à l'aide d'une fonction qui s'occupe d'envoyer un message texte simple
         setTimeout(() => {
           sendTextMessage(senderID, messageText);
-        }, 2000);
+          // Ce n'est pas la peine de désactiver typing_on parce que ça se
+          // désactive automatiquement après l'envoi d'un message
+        }, 2500);
         // sendTextMessage(senderID, messageText);
         break;
     }
