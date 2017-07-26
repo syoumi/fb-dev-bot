@@ -10,6 +10,9 @@ var recievedSeen = (event) => {
         sendTextMessage(event.sender.id, 'J\'attends toujours votre réponse !!');
         waitingForAnswer = false;
       }
+      else {
+        console.log('Found that no longer waiting');
+      }
     }, 5000);
   }
 };
