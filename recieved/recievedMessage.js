@@ -61,7 +61,7 @@ var recievedMessage = (event) => {
           }
         ];
 
-        sendQuickReplies(senderID);
+        sendQuickReplies(senderID, choices);
 
         break;
       default:
