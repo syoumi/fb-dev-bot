@@ -47,17 +47,17 @@ var recievedMessage = (event) => {
           {
             content_type: 'text',
             title: 'Nice',
-            postback: 'NICE_CUSTOM_POSTBACK'
+            payload: 'NICE_CUSTOM_POSTBACK'
           },
           {
             content_type: 'text',
             title: 'Not bad',
-            postback: 'NOT_BAD_CUSTOM_POSTBACK'
+            payload: 'NOT_BAD_CUSTOM_POSTBACK'
           },
           {
             content_type: 'text',
             title: 'Not nice',
-            postback: 'NOT_NICE_CUSTOM_POSTBACK'
+            payload: 'NOT_NICE_CUSTOM_POSTBACK'
           }
         ];
 
