@@ -24,14 +24,14 @@ var callSendAPI = (messageData) => {
       console.log(`#### Message sent informations ####`);
       console.log(`| recipientID ${recipientID}`);
       console.log(`| messageID ${messageID}`);
-      console.log(`################END################`);
+      console.log(`################END MSI############`);
     } else {
 
       // Si il y avait une erreur HTTP, faire un log
       console.error(`#### Message sent errors ####`);
       console.error(response);
       console.error(error);
-      console.error(`################END################`);
+      console.error(`################END MSE######`);
     }
   });
 };

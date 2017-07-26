@@ -18,7 +18,7 @@ var recievedMessage = (event) => {
   console.log(`### Message event informations ###`);
   console.log(`| senderID : ${senderID}, recipientID ${recipientID}, timeOfMessage ${timeOfMessage}`);
   console.log(`| message body : ${message}`);
-  console.log(`################end################`);
+  console.log(`################end MEI ################`);
 
   // On prend plus d'informations
   // 5. l'Identifiant du message
