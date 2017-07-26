@@ -19,6 +19,7 @@ var sendTextMessage = (reciepientID, textMessage) => {
   // si c'est une question, on mentionne qu'on attend une réponse
   if (textMessage === 'Test?') {
     waitingForAnswer = true;
+    console.log('waiting set to true');
   }
 
   // on appelle la fonction qui sera responsable d'envoyer le message à l'API FB
