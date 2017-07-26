@@ -62,7 +62,6 @@ app.post('/webhook', (req, res) => {
 
           // Si notre message à été vu par l'utilisateur
           // on donne un délai, puis on lui demande de répondre s'il n'a pas répondu
-          console.log('Recieved seen !!');
           recievedSeen(event);
         } else {
 
