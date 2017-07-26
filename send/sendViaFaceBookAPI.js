@@ -1,7 +1,7 @@
 // Ce fichier est responsable d'envoi des donnée message texte via l'API FB
 
 const request = require('request');
-const {FB_PAGE_TOKEN} = requrie('./../include/config');
+const {FB_PAGE_TOKEN} = require('./../include/config');
 
 var callSendAPI = (messageData) => {
   // On utilise le module REQUEST pour envoyer des requetes HTTP à l'API FB
