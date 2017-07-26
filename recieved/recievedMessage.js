@@ -1,4 +1,8 @@
 // Ce fichier contient la logique de la reception des events de type 'Message Event'
+
+const {sendGenericMessage} = require('./../send/sendGenericMessage');
+const {sendTextMessage} = require('./../send/sendTextMessage');
+
 var recievedMessage = (event) => {
   // On extrait quelques informations
   // 1. le Facebook ID du sender
@@ -7,13 +11,46 @@ var recievedMessage = (event) => {
   var recipientID = event.recipient.id;
   // 3. le temps d'envoi du message
   var timeOfMessage = event.timestamp;
-  // 4. le corps du message texte
+  // 4. le corps du message (C'est pas le texte)
   var message = event.message;
 
   // On log les informations sur le serveur (sorte d'hitorique)
   console.log(`### Message event informations ###`);
-  console.log(`| senderID : ${senderID}, recipientID ${recipientID}`);
-  console.log(``);
+  console.log(`| senderID : ${senderID}, recipientID ${recipientID}, timeOfMessage ${timeOfMessage}`);
+  console.log(`| message body : ${message}`);
+  console.log(`################end################`);
+
+  // On prend plus d'informations
+  // 5. l'Identifiant du message
+  var messageID = message.mid;
+  // 6. le corps du message TEXTE
+  var messageText = message.text;
+  // 7. les pièces jointes si dispo bien sur
+  var messageAttachments = message.attachments;
+
+  if (messageText) {
+
+    // Si le message contient du texte
+    // on mets des switch case sur le contenu du message pour décider comment répondre
+    switch (messageText) {
+      case 'generic':
+        // on utilise une fonction qui va s'occuper de répondre avec un generic template
+        sendGenericMessage(senderID);
+        break;
+      default:
+        // par défaut, on renvoi le même message
+        // à l'aide d'une fonction qui s'occupe d'envoyer un message texte simple
+        sendTextMessage(senderID, messageText);
+        break;
+    }
+  } else if (messageAttachments) {
+
+    // C'est le cas ou le message contient des pièces jointes
+    // normalement ça doit être plus complexe, mais bon on va se contenter de ça
+    // envoyer un message texte simple ...
+    sendTextMessage(senderID, 'We recieved your attachments successfully ^_^ !');
+  }
+
 };
 
 module.exports = {

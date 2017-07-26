@@ -1,15 +1,17 @@
 const express = require('express');
-const config = require('./include/config.js');
+
+const {PORT} = require('./include/config');
+const {VERIFY_TOKEN} = require('./include/config');
 const {recievedMessage} = require('./recieved/recievedMessage');
 
 var app = express();
 
-const PORT = process.env.PORT || 9191;
+// const PORT = process.env.PORT || 9191;
 
 // Cette fonction est responsable d'effectuer la première verification FB
 
 app.get('/webhook', (req, res) => {
-  if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.VERIFY_TOKEN) {
+  if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === VERIFY_TOKEN) {
       console.log("Validating webhook");
       res.status(200).send(req.query['hub.challenge']);
     } else {
