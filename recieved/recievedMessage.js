@@ -26,6 +26,7 @@ var recievedMessage = (event) => {
   console.log(`################end MEI ################`);
 
   // Set waiting to false
+  console.log('waiting set to false');
   waitingForAnswer = false;
 
   // On prend plus d'informations
