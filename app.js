@@ -1,10 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const {PORT} = require('./include/config');
 const {VERIFY_TOKEN} = require('./include/config');
 const {recievedMessage} = require('./recieved/recievedMessage');
 
 var app = express();
+
+// Ajouter ces middlewares pour assurer le fonctionnement de express
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // const PORT = process.env.PORT || 9191;
 
