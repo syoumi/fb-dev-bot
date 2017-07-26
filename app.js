@@ -54,7 +54,7 @@ app.post('/webhook', (req, res) => {
         } else {
 
           // Rien à faire, event inconnu
-          console.log("Webhook recieved unknown event : ", JSON.stringify(event, undefined, 2));
+          console.log("Webhook recieved unknown event : ", event);
         }
       });
     });
