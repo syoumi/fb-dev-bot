@@ -1,5 +1,6 @@
 // Ce fichier implémente la logique à utiliser lorsqu'un utilisateur lit un message envoyé
 
+var {sendTextMessage} = require('./../send/sendTextMessage');
 var {getWaiting} = require('./../include/config');
 var {setNotWaiting} = require('./../include/config');
 
