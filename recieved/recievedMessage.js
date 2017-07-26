@@ -2,6 +2,8 @@
 
 const {sendGenericMessage} = require('./../send/sendGenericMessage');
 const {sendTextMessage} = require('./../send/sendTextMessage');
+const {sendTypingOn} = require('./../send/sendTypingOnOff');
+const {sendTypingOff} = require('./../send/sendTypingOnOff');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -38,9 +40,13 @@ var recievedMessage = (event) => {
         sendGenericMessage(senderID);
         break;
       default:
+        // faire un petit délai pour simuler l'écriture
+        // 1. on rend le bot en train d'écriture
+        sendTypingOn(senderID);
         // par défaut, on renvoi le même message
         // à l'aide d'une fonction qui s'occupe d'envoyer un message texte simple
-        sendTextMessage(senderID, messageText);
+        setTimeout(sendTextMessage(senderID, messageText), 2000);
+        // sendTextMessage(senderID, messageText);
         break;
     }
   } else if (messageAttachments) {

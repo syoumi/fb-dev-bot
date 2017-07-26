@@ -6,6 +6,7 @@ const {VERIFY_TOKEN} = require('./include/config');
 const {recievedMessage} = require('./recieved/recievedMessage');
 const {recievedPostBack} = require('./recieved/recievedPostBack');
 
+
 var app = express();
 
 // Ajouter ces middlewares pour assurer le fonctionnement de express
