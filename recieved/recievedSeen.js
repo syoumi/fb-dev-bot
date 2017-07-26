@@ -33,7 +33,7 @@ var recievedSeen = (event) => {
         // Exemple: l'utilisateur à répondu avant la fin du countdown
         console.log('BOT is not longer waiting');
       }
-    }, WAITING_BEFORE_PROMPT);
+    }, parseInt(WAITING_BEFORE_PROMPT));
   }
   else {
     // si dès le début le BOT n'attends pas d'informations importantes, rien à faire
