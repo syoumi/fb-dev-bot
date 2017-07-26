@@ -17,7 +17,7 @@ var sendTextMessage = (reciepientID, textMessage) => {
   };
 
   // si c'est une question, on mentionne qu'on attend une réponse
-  if (textMessage === 'Votre nom ?') {
+  if (textMessage === 'Test?') {
     waitingForAnswer = true;
   }
 
