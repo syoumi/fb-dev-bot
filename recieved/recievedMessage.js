@@ -6,7 +6,8 @@ const {sendQuickReplies} = require('./../send/sendQuickReplies');
 const {sendTypingOn} = require('./../send/sendTypingOnOff');
 const {sendTypingOff} = require('./../send/sendTypingOnOff');
 
-var {waitingForAnswer} = require('./../include/config');
+var {setNotWaiting} = require('./../include/config');
+var {getWaiting} = require('./../include/config');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -27,7 +28,7 @@ var recievedMessage = (event) => {
 
   // Set waiting to false
   console.log('waiting set to false');
-  waitingForAnswer = false;
+  setNotWaiting();
 
   // On prend plus d'informations
   // 5. l'Identifiant du message

@@ -4,9 +4,21 @@ const FB_PAGE_TOKEN = 'EAAZAXZAcQxCAsBABD7nCVby8n7eI5NjzDDNYCNNnXrKZBsL0nAaLmA28
 const VERIFY_TOKEN = 'SIMPLE_VERIFY_TOKEN';
 var waitingForAnswer = false;
 
+var setWaiting = () => {
+  waitingForAnswer = true;
+};
+
+var setNotWaiting = () => {
+  waitingForAnswer = false;
+};
+
+var getWaiting = () => waitingForAnswer;
+
 module.exports = {
   VERIFY_TOKEN,
   FB_PAGE_TOKEN,
   PORT,
-  waitingForAnswer
+  setWaiting,
+  setNotWaiting,
+  getWaiting
 }

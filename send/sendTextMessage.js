@@ -2,7 +2,9 @@
 
 const {callSendAPI} = require('./sendViaFaceBookAPI');
 
-var {waitingForAnswer} = require('./../include/config');
+var {setWaiting} = require('./../include/config');
+var {getWaiting} = require('./../include/config');
+
 
 var sendTextMessage = (reciepientID, textMessage) => {
 
@@ -18,7 +20,7 @@ var sendTextMessage = (reciepientID, textMessage) => {
 
   // si c'est une question, on mentionne qu'on attend une réponse
   if (textMessage === 'Test?') {
-    waitingForAnswer = true;
+    setWaiting();
     console.log('waiting set to true');
   }
 

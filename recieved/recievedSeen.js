@@ -1,14 +1,15 @@
 // Ce fichier implémente la logique à utiliser lorsqu'un utilisateur lit un message envoyé
 
-var {waitingForAnswer} = require('./../include/config');
+var {getWaiting} = require('./../include/config');
+var {setNotWaiting} = require('./../include/config');
 
 var recievedSeen = (event) => {
-  if (waitingForAnswer) {
+  if (getWaiting()) {
     setTimeout(() => {
-      if (waitingForAnswer) {
+      if (getWaiting()) {
         console.log('Sending confirmation to user');
         sendTextMessage(event.sender.id, 'J\'attends toujours votre réponse !!');
-        waitingForAnswer = false;
+        setNotWaiting();
       }
       else {
         console.log('Found that no longer waiting');
@@ -16,7 +17,7 @@ var recievedSeen = (event) => {
     }, 5000);
   }
   else {
-    console.log(`Waiting is ${waitingForAnswer}`);
+    console.log(`Waiting is ${getWaiting()}`);
   }
 };
 
