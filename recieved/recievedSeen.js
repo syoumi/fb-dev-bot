@@ -15,6 +15,9 @@ var recievedSeen = (event) => {
       }
     }, 5000);
   }
+  else {
+    console.log('Is not waiting for answer');
+  }
 };
 
 module.exports = {
