@@ -2,6 +2,8 @@
 
 const {callSendAPI} = require('./sendViaFaceBookAPI');
 
+var {waitingForAnswer} = require('./../include/config');
+
 var sendTextMessage = (reciepientID, textMessage) => {
 
   // on construit l'object qui va contenir le corps du message
@@ -13,6 +15,11 @@ var sendTextMessage = (reciepientID, textMessage) => {
       text: textMessage
     }
   };
+
+  // si c'est une question, on mentionne qu'on attend une réponse
+  if (textMessage === 'Votre nom ?') {
+    waitingForAnswer = true;
+  }
 
   // on appelle la fonction qui sera responsable d'envoyer le message à l'API FB
   callSendAPI(messageData);

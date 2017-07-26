@@ -31,7 +31,7 @@ var sendGenericMessage = (reciepientID) => {
             }, {
               type: "postback",
               title: "Faire un Postback",
-              payload: "Je clique sur ce bouton", // Cela va apparaitre sur la discussion comme si l'utilisateur l'a écrit
+              payload: "THIS_IS_MY_FIRST_CUSTOM_PAYLOAD_HAHA", // Cela va apparaitre sur la discussion comme si l'utilisateur l'a écrit
             }],
           }, {
             // deuxième elemnt, mm chose
@@ -46,7 +46,7 @@ var sendGenericMessage = (reciepientID) => {
             }, {
               type: "postback",
               title: "Un autre Postback",
-              payload: "Vous l'avez compris :D",
+              payload: "JUST_ANOTHER_PAYLOAD",
             }]
           }]
         }

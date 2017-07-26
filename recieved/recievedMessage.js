@@ -6,6 +6,8 @@ const {sendQuickReplies} = require('./../send/sendQuickReplies');
 const {sendTypingOn} = require('./../send/sendTypingOnOff');
 const {sendTypingOff} = require('./../send/sendTypingOnOff');
 
+var {waitingForAnswer} = require('./../include/config');
+
 var recievedMessage = (event) => {
   // On extrait quelques informations
   // 1. le Facebook ID du sender
@@ -22,6 +24,9 @@ var recievedMessage = (event) => {
   console.log(`| senderID : ${senderID}, recipientID ${recipientID}, timeOfMessage ${timeOfMessage}`);
   console.log(`| message body : ${message}`);
   console.log(`################end MEI ################`);
+
+  // Set waiting to false
+  waitingForAnswer = false;
 
   // On prend plus d'informations
   // 5. l'Identifiant du message

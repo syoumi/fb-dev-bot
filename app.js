@@ -57,6 +57,11 @@ app.post('/webhook', (req, res) => {
 
           // On fait appel à une fonction qui gère la reception de tous les postbacks
           recievedPostBack(event);
+        } else if (event.read) {
+
+          // Si notre message à été vu par l'utilisateur
+          // on donne un délai, puis on lui demande de répondre s'il n'a pas répondu
+          recievedSeen(event);
         } else {
 
           // Rien à faire, event inconnu
