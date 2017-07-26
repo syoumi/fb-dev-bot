@@ -45,7 +45,9 @@ var recievedMessage = (event) => {
         sendTypingOn(senderID);
         // par défaut, on renvoi le même message
         // à l'aide d'une fonction qui s'occupe d'envoyer un message texte simple
-        setTimeout(sendTextMessage(senderID, messageText), 2000);
+        setTimeout(() => {
+          sendTextMessage(senderID, messageText);
+        }, 2000);
         // sendTextMessage(senderID, messageText);
         break;
     }
