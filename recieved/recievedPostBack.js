@@ -17,7 +17,7 @@ var recievedPostBack = (event) => {
   console.log(`senderID ${senderID}, recipientID ${recipientID}, time ${timeOfPostBack}`);
   console.log('#################END PRI##############');
 
-  sendTextMessage(senderID, 'Postback recu avec succes');
+  sendTextMessage(senderID, `Postback ${payload} reçu !!`);
 };
 
 module.exports = {
