@@ -1,26 +1,28 @@
+// Fichier de gestion du serveur backend
+
+// Importation des package npm
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {PORT} = require('./include/config');
-const {VERIFY_TOKEN} = require('./include/config');
+// Importation des fonctions
 const {recievedMessage} = require('./recieved/recievedMessage');
 const {recievedPostBack} = require('./recieved/recievedPostBack');
 const {recievedSeen} = require('./recieved/recievedSeen');
 
+// Importation des constantes
+const {PORT} = require('./include/config');
+const {VERIFY_TOKEN} = require('./include/config');
 
+// Création d'une instance serveur
 var app = express();
 
 // Ajouter ces middlewares pour assurer le fonctionnement de express
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // parse application/json
 app.use(bodyParser.json());
 
-// const PORT = process.env.PORT || 9191;
-
 // Cette fonction est responsable d'effectuer la première verification FB
-
 app.get('/webhook', (req, res) => {
   if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === VERIFY_TOKEN) {
       console.log("Validating webhook");

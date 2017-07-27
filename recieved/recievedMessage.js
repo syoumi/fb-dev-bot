@@ -8,6 +8,7 @@ const {sendTypingOff} = require('./../send/sendTypingOnOff');
 
 var {setNotWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
+var {getUserInfos} = require('./../retrieve/getUserInfos');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -70,6 +71,16 @@ var recievedMessage = (event) => {
 
         sendQuickReplies(senderID, choices);
 
+        break;
+
+      case 'Tu me connais?':
+        sendTypingOn(senderID);
+        getUserInfos(senderID, (fname, lname, ppicture, locale) => {
+          sendTextMessage(senderID, 'Je pense que oui ...');
+          sendTextMessage(senderID, `Vous êtes ${fname} ${lname}`);
+          sendTextMessage(senderID, `Votre locale est ${locale}`);
+          // TODO send profile picture back
+        });
         break;
       default:
         // faire un petit délai pour simuler l'écriture
