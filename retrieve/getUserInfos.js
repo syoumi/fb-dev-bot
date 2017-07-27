@@ -15,11 +15,12 @@ var getUserInfos = (userID, callback) => {
   }, (error, response, body) => {
     console.log('###TEST1');
     if (!error && response.statusCode == 200) {
+      var bodyObj = JSON.parse(body);
       console.log('###TEST2');
 
       console.log('... Informations abt user retrieved successfully ...');
       console.log('BODY : ' , body);
-      callback(response.first_name, body.last_name, body.profile_pic, body.locale);
+      callback(bodyObj.first_name, body.last_name, body.profile_pic, body.locale);
     } else {
       console.log('###TEST3');
 
