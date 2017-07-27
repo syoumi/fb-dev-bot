@@ -74,7 +74,10 @@ var recievedMessage = (event) => {
 
       case 'Tu me connais?':
         sendTextMessage(senderID, 'Je pense que oui ...');
-        sendTypingOn(senderID);
+
+        setTimeout(function () {
+          sendTypingOn(senderID);
+        }, 1000);
 
         setTimeout(function () {
           getUserInfos(senderID, (fname, lname, ppicture, locale) => {
