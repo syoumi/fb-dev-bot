@@ -9,6 +9,7 @@ const {sendTypingOff} = require('./../send/sendTypingOnOff');
 var {setNotWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
 var {getUserInfos} = require('./../retrieve/getUserInfos');
+var {sendPictureMessage} = require('./../send/sendPictureMessage');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -82,8 +83,8 @@ var recievedMessage = (event) => {
         setTimeout(function () {
           getUserInfos(senderID, (fname, lname, ppicture, locale) => {
             sendTextMessage(senderID, `Vous êtes ${fname} ${lname}`);
-            sendTextMessage(senderID, `Votre paramètre de région et langue est ${locale}`);
-            // TODO send profile picture back
+            // sendTextMessage(senderID, `Votre paramètre de région et langue est ${locale}`);
+            sendPictureMessage(senderID, ppicture);
           });
         }, 3000);
 
