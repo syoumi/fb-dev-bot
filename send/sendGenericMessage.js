@@ -5,7 +5,6 @@ const {callSendAPI} = require('./sendViaFaceBookAPI');
 
 var sendGenericMessage = (reciepientID) => {
   // on structure notre message, préparation pour l'envoi à l'API
-  console.log('reciepientID', reciepientID);
   var messageData = {
     recipient: {
       id: reciepientID
