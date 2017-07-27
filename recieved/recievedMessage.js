@@ -28,7 +28,6 @@ var recievedMessage = (event) => {
   console.log(`################end MEI ################`);
 
   // Set waiting to false
-  console.log('waiting set to false');
   setNotWaiting();
 
   // On prend plus d'informations
@@ -74,13 +73,17 @@ var recievedMessage = (event) => {
         break;
 
       case 'Tu me connais?':
+        sendTextMessage(senderID, 'Je pense que oui ...');
         sendTypingOn(senderID);
-        getUserInfos(senderID, (fname, lname, ppicture, locale) => {
-          sendTextMessage(senderID, 'Je pense que oui ...');
-          sendTextMessage(senderID, `Vous êtes ${fname} ${lname}`);
-          sendTextMessage(senderID, `Votre locale est ${locale}`);
-          // TODO send profile picture back
-        });
+
+        setTimeout(function () {
+          getUserInfos(senderID, (fname, lname, ppicture, locale) => {
+            sendTextMessage(senderID, `Vous êtes ${fname} ${lname}`);
+            sendTextMessage(senderID, `Votre paramètre de région et langue est ${locale}`);
+            // TODO send profile picture back
+          });
+        }, 3000);
+
         break;
       default:
         // faire un petit délai pour simuler l'écriture
