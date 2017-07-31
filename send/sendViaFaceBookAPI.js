@@ -3,7 +3,7 @@
 const request = require('request');
 const {FB_PAGE_TOKEN} = require('./../include/config');
 
-var callSendAPI = (messageData) => {
+var callSendAPI = (messageData, callback) => {
   // On utilise le module REQUEST pour envoyer des requetes HTTP à l'API FB
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -33,6 +33,7 @@ var callSendAPI = (messageData) => {
       console.error(error);
       console.error(`################END MSE######`);
     }
+    callback();
   });
 };
 
