@@ -38,6 +38,7 @@ var callSendAPI = (messageData, callback) => {
 };
 
 var syncCallSendAPI = (messageData, callback) => {
+  console.log('API reception');
   // On utilise le module REQUEST pour envoyer des requetes HTTP à l'API FB
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -48,6 +49,7 @@ var syncCallSendAPI = (messageData, callback) => {
     json: messageData
   }, (error, response, body) => {
     callback();
+    console.log('Response recieved');
     if (!error && response.statusCode === 200) {
 
       // Si y a pas d'error est le status est 200 => OK
