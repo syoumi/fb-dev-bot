@@ -11,6 +11,7 @@ var {getWaiting} = require('./../include/config');
 var {getUserInfos} = require('./../retrieve/getUserInfos');
 var {sendPictureMessage} = require('./../send/sendPictureMessage');
 var {getAllAccounts} = require('./../data/salesforce/getAllAccounts');
+var {getLastAccounts} = require('./../data/salesforce/getLastAccounts');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -94,6 +95,10 @@ var recievedMessage = (event) => {
 
       case 'login':
         getAllAccounts(senderID);
+        break;
+
+      case 'last accounts':
+        getLastAccounts(senderID);
         break;
 
       default:
