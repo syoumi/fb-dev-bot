@@ -24,7 +24,7 @@ var sendBulkTextMessages = (recipientID, messages) => {
     if (message === 'Test?') {
       setWaiting();
     }
-
+    console.log('Sending to API ...');
     syncCallSendAPI(messageData, callback);
   });
 };
