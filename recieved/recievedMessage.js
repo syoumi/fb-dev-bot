@@ -100,7 +100,6 @@ var recievedMessage = (event) => {
 
       case 'last accounts':
         sendBulkTextMessages(senderID, ['msg1', 'msg2', 'msg3']);
-
         // getLastAccounts(senderID);
         break;
 
