@@ -8,7 +8,9 @@ var {sendTypingOn} = require('./sendTypingOnOff');
 var {sendTextMessage} = require('./sendTextMessage');
 
 var sendBulkTextMessages = (recipientID, messages) => {
+  console.log('messages ' , messages);
   messages.forEach((message) => {
+    console.log('Iteration over messages');
     // constructing the message object to send to the API
     var messageData = {
       recipient: {
@@ -18,7 +20,6 @@ var sendBulkTextMessages = (recipientID, messages) => {
         text: message
       }
     };
-    console.log('message data ' , messageData);
 
     // If it's an important message, we will be waiting for answer
     if (textMessage === 'Test?') {
