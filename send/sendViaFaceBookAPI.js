@@ -33,9 +33,8 @@ var callSendAPI = (messageData, callback) => {
       console.error(error);
       console.error(`################END MSE######`);
     }
-    if (callback) {
-      callback();      
-    }
+    return Promise.resolve();
+
   });
 };
 
