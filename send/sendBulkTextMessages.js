@@ -43,7 +43,7 @@ var sendBulkTextMessagesWithDelai = (reciepientID, messages) => {
     sendTypingOn(recipientID);
 
     setTimeout(function () {
-      sendTextMessage(recipientID, textMessage);
+      sendTextMessage(recipientID, message);
     }, delai);
   });
 };
