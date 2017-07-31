@@ -9,7 +9,7 @@ var {sendTextMessage} = require('./sendTextMessage');
 
 var sendBulkTextMessages = (recipientID, messages) => {
   console.log('messages ' , messages);
-  messages.forEach(function (message) {
+  messages.forEach((message) => {
     console.log('Iteration over messages, message ' , message);
     // constructing the message object to send to the API
     var messageData = {
@@ -34,7 +34,7 @@ var sendBulkTextMessages = (recipientID, messages) => {
     // setTimeout(() => {
     //   // nothing to do...
     // }, 1000);
-  });
+  }, this);
 };
 
 var sendBulkTextMessagesWithDelai = (reciepientID, messages) => {
