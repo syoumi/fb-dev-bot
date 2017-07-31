@@ -29,9 +29,9 @@ var sendTextMessage = (reciepientID, textMessage) => {
 };
 
 var sendTextMessageWithDelai = (recipientID, textMessage) => {
-  // Assuming thet the bot will be typing 3 characters per second
-  // the delai will be
-  var delai = ( textMessage.length / 3 ) * 1000; // in Milliseconds
+  // We will pick up a random delai between 50 and 500 Milliseconds / character
+  // to simulate bot is typing on
+  var delai = parseInt(Math.random() * ( 500 - 50 ) + 50) * textMessage.length;
 
   sendTypingOn(recipientID);
 

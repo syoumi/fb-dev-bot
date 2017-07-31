@@ -103,17 +103,9 @@ var recievedMessage = (event) => {
         break;
 
       default:
-        // faire un petit délai pour simuler l'écriture
-        // 1. on rend le bot en train d'écriture
-        sendTypingOn(senderID);
         // par défaut, on renvoi le même message
         // à l'aide d'une fonction qui s'occupe d'envoyer un message texte simple
-        setTimeout(() => {
-          sendTextMessage(senderID, messageText);
-          // Ce n'est pas la peine de désactiver typing_on parce que ça se
-          // désactive automatiquement après l'envoi d'un message
-        }, 2500);
-        // sendTextMessage(senderID, messageText);
+        sendTextMessageWithDelai(senderID, messageText);
         break;
     }
   } else if (messageAttachments) {
