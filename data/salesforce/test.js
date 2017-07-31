@@ -5,11 +5,7 @@ const jsforce = require('jsforce');
 const {SF_LOGIN} = require('./../../include/config');
 const {SF_PASSWORD} = require('./../../include/config');
 
-var link = new jsforce.Connection({
-  // optionnal
-  // We can change the login URL to sandbox or prerelease env.
-  loginUrl: 'https://login.salesforce.com'
-});
+var link = new jsforce.Connection();
 
 // We make a new connection using our salesforce credentials
 link.login(SF_LOGIN, SF_PASSWORD, (err, userInfo) => {
@@ -33,7 +29,7 @@ link.login(SF_LOGIN, SF_PASSWORD, (err, userInfo) => {
   console.log(`Org ID ${orgId}`);
   // ...
 });
-// 
+//
 // link.logout((err) => {
 //   if (err) {
 //     return console.error('Error occured while loggin out');
