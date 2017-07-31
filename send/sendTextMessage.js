@@ -31,8 +31,11 @@ var sendTextMessage = (reciepientID, textMessage) => {
 var sendTextMessageWithDelai = (recipientID, textMessage) => {
   // Assuming thet the bot will be typing 3 characters per second
   // the delai will be
+  setTimeout(function () {
+    sendTypingOn();
+  }, 500);
   var delai = ( textMessage.length / 3 ) * 1000; // in Milliseconds
-  sendTypingOn();
+
   setTimeout(function () {
     sendTextMessage(recipientID, textMessage);
   }, delai);
