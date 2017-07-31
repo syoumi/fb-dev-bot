@@ -23,6 +23,8 @@ module.exports = {
   FB_PAGE_TOKEN,
   PORT,
   WAITING_BEFORE_PROMPT,
+  SF_LOGIN,
+  SF_PASSWORD,
   setWaiting,
   setNotWaiting,
   getWaiting
