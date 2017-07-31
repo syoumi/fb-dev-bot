@@ -26,7 +26,7 @@ var getLastAccounts = (senderID) => {
             sendTextMessageWithDelai(senderID, `The first account name is ${records[0].Name}`);
           }
           else {
-            console.log('Account is null');
+            console.log('records length is ' , records.length);
           }
         });
   });
