@@ -23,11 +23,13 @@ var getLastAccounts = (senderID) => {
           console.log(response);
           // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
           if (response.records[0]) {
-            sendTextMessageWithDelai(senderID, `The first account name is ${response.records[0].Name}`);
+            sendTextMessageWithDelai(senderID, `The first account name is ${response.records[0].Name}`).then(() => {
+              if (response.records[1]) {
+                sendTextMessageWithDelai(senderID, `The second account name is ${response.records[1].Name}`);
+              }
+            });
           }
-          if (response.records[1]) {
-            sendTextMessageWithDelai(senderID, `The second account name is ${response.records[1].Name}`);
-          }
+
         });
   });
 };
