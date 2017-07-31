@@ -12,6 +12,7 @@ var {getUserInfos} = require('./../retrieve/getUserInfos');
 var {sendPictureMessage} = require('./../send/sendPictureMessage');
 var {getAllAccounts} = require('./../data/salesforce/getAllAccounts');
 var {getLastAccounts} = require('./../data/salesforce/getLastAccounts');
+var {sendBulkTextMessages} = require('./../sendBulkTextMessages');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -98,7 +99,9 @@ var recievedMessage = (event) => {
         break;
 
       case 'last accounts':
-        getLastAccounts(senderID);
+        sendBulkTextMessages(senderID, ['msg1', 'msg2', 'msg3']);
+
+        // getLastAccounts(senderID);
         break;
 
       default:
