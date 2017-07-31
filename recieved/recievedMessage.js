@@ -2,6 +2,7 @@
 
 const {sendGenericMessage} = require('./../send/sendGenericMessage');
 const {sendTextMessage} = require('./../send/sendTextMessage');
+const {sendTextMessageWithDelai} = require('./../send/sendTextMessage');
 const {sendQuickReplies} = require('./../send/sendQuickReplies');
 const {sendTypingOn} = require('./../send/sendTypingOnOff');
 const {sendTypingOff} = require('./../send/sendTypingOnOff');
