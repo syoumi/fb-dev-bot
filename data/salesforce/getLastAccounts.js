@@ -25,6 +25,9 @@ var getLastAccounts = (senderID) => {
           if (response.records[0]) {
             sendTextMessageWithDelai(senderID, `The first account name is ${response.records[0].Name}`);
           }
+          if (response.records[1]) {
+            sendTextMessageWithDelai(senderID, `The second account name is ${response.records[1].Name}`);
+          }
         });
   });
 };
