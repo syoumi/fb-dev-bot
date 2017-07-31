@@ -4,6 +4,7 @@ const {callSendAPI} = require('./sendViaFaceBookAPI');
 
 var {setWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
+var {sendTypingOn} = require('./sendTypingOnOff');
 
 
 var sendTextMessage = (reciepientID, textMessage) => {
@@ -27,6 +28,17 @@ var sendTextMessage = (reciepientID, textMessage) => {
   callSendAPI(messageData);
 };
 
+var sendTextMessageWithDelai = (recipientID, textMessage) => {
+  // Assuming thet the bot will be typing 3 characters per second
+  // the delai will be
+  var delai = ( textMessage.length / 3 ) * 1000; // in Milliseconds
+  sendTypingOn();
+  setTimeout(function () {
+    sendTextMessage(recipientID, messageText);
+  }, delai);
+};
+
 module.exports = {
+  sendTextMessageWithDelai,
   sendTextMessage
 };

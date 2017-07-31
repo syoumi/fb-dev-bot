@@ -1,8 +1,9 @@
 // In this file, we are getting all the accounts from salesfoce instance
 
 var {doLogin} = require('./login');
+var {sendTextMessageWithDelai} = require('./../../send/sendTextMessage');
 
-var getAllAccounts = () => {
+var getAllAccounts = (senderID) => {
   doLogin((link) => {
     link.query("SELECT Id, Name FROM Account", (err, result) => {
       if (err) {
@@ -10,6 +11,8 @@ var getAllAccounts = () => {
       }
       console.log('Result total size : ' , result.totalSize);
       console.log('Fetched : ' , result.records.length);
+      // Sending some messages to user
+      sendTextMessageWithDelai(senderID, `The total number of accounts is ${result.totalSize} :o`);
 
       link.logout((err) => {
         if (err) {

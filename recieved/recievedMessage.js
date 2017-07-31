@@ -93,7 +93,7 @@ var recievedMessage = (event) => {
         break;
 
       case 'login':
-        getAllAccounts();
+        getAllAccounts(senderID);
         break;
 
       default:
