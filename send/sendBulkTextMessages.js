@@ -6,6 +6,7 @@ var {setWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
 var {sendTypingOn} = require('./sendTypingOnOff');
 var {sendTextMessage} = require('./sendTextMessage');
+var {callSendAPI} = require('./sendViaFaceBookAPI');
 
 var sendBulkTextMessages = (recipientID, messages) => {
   console.log('messages ' , messages);
