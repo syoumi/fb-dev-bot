@@ -33,10 +33,10 @@ link.login(SF_LOGIN, SF_PASSWORD, (err, userInfo) => {
   console.log(`Org ID ${orgId}`);
   // ...
 });
-
-link.logout((err) => {
-  if (err) {
-    return console.error('Error occured while loggin out');
-  }
-  console.log('Logged out successfully');
-});
+// 
+// link.logout((err) => {
+//   if (err) {
+//     return console.error('Error occured while loggin out');
+//   }
+//   console.log('Logged out successfully');
+// });
