@@ -47,6 +47,7 @@ var syncCallSendAPI = (messageData, callback) => {
     method: 'POST',
     json: messageData
   }, (error, response, body) => {
+    callback();
     if (!error && response.statusCode === 200) {
 
       // Si y a pas d'error est le status est 200 => OK
@@ -67,7 +68,7 @@ var syncCallSendAPI = (messageData, callback) => {
       console.error(error);
       console.error(`################END MSE######`);
     }
-    callback();
+
 
   });
 }
