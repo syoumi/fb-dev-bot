@@ -3,6 +3,7 @@
 var {doLogin} = require('./login');
 var {sendTextMessageWithDelai} = require('./../../send/sendTextMessage');
 var {sendBulkTextMessagesWithDelai} = require('./../../send/sendBulkTextMessages');
+var {sendBulkTextMessages} = require('./../../send/sendBulkTextMessages');
 
 var getLastAccounts = (senderID) => {
   doLogin((link) => {
@@ -34,7 +35,7 @@ var getLastAccounts = (senderID) => {
             messagesToSend.push(`The name of the third account is : ${response.records[2].Name}`);
           }
           console.log('Messages to send lenght ' , messagesToSend.length);
-          messagesToSend.forEach((message) => console.log(message));
+          // messagesToSend.forEach((message) => console.log(message));
           sendBulkTextMessages(senderID, messagesToSend);
         });
   });
