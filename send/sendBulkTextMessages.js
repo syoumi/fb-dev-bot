@@ -25,9 +25,8 @@ var sendBulkTextMessages = (recipientID, messages) => {
       setWaiting();
     }
 
-    callSendAPI(messageData);
+    syncCallSendAPI(messageData, callback);
 
-    callback();
     
   });
 };
