@@ -91,6 +91,10 @@ var recievedMessage = (event) => {
 
         break;
 
+      case 'login':
+        require('./../data/salesforce/test');
+        break;
+        
       default:
         // faire un petit délai pour simuler l'écriture
         // 1. on rend le bot en train d'écriture
