@@ -12,7 +12,7 @@ var {getUserInfos} = require('./../retrieve/getUserInfos');
 var {sendPictureMessage} = require('./../send/sendPictureMessage');
 var {getAllAccounts} = require('./../data/salesforce/getAllAccounts');
 var {getLastAccounts} = require('./../data/salesforce/getLastAccounts');
-var {sendBulkTextMessages} = require('./../sendBulkTextMessages');
+var {sendBulkTextMessages} = require('./../send/sendBulkTextMessages');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
