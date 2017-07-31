@@ -3,6 +3,7 @@
 const async = require('async');
 
 const {callSendAPI} = require('./sendViaFaceBookAPI');
+const {syncCallSendAPI} = require('./sendViaFaceBookAPI');
 
 var {setWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
