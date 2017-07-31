@@ -8,7 +8,7 @@ const {SF_PASSWORD} = require('./../../include/config');
 var link = new jsforce.Connection({
   // optionnal
   // We can change the login URL to sandbox or prerelease env.
-  loginUrl: 'https://login.salesforce.com'
+  loginUrl: 'https://test.salesforce.com'
 });
 
 // We make a new connection using our salesforce credentials
