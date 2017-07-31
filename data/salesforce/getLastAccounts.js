@@ -22,8 +22,7 @@ var getLastAccounts = (senderID) => {
           if (err) {
             return console.error('Error occured while executing query');
           }
-          console.log(response);
-          sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
+          // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
           var messagesToSend = [];
           if (response.records[0]) {
             messagesToSend.push(`The name of the first account is : ${response.records[0].Name}`);
