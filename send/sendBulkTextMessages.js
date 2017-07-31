@@ -28,12 +28,13 @@ var sendBulkTextMessages = (recipientID, messages) => {
     }
 
     // calling the facebook API to send the data
-    callSendAPI(messageData);
+    // and making a small delai between messages
 
-    // making a small delai between messages
     setTimeout(() => {
-      console.log('...');
+      callSendAPI(messageData);
     }, 2000);
+
+
   });
 };
 
