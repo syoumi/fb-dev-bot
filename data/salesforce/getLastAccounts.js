@@ -2,6 +2,7 @@
 
 var {doLogin} = require('./login');
 var {sendTextMessageWithDelai} = require('./../../send/sendTextMessage');
+var {sendBulkTextMessagesWithDelai} = require('./../../send/sendBulkTextMessages');
 
 var getLastAccounts = (senderID) => {
   doLogin((link) => {
@@ -21,16 +22,18 @@ var getLastAccounts = (senderID) => {
             return console.error('Error occured while executing query');
           }
           console.log(response);
-          // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
+          sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
+          var messagesToSend = [];
           if (response.records[0]) {
-            sendTextMessageWithDelai(senderID, `The first account name is ${response.records[0].Name}`);
+            messagesToSend.push('The name of the first account is : ' , response.records[0].Name);
           }
           if (response.records[1]) {
-            sendTextMessageWithDelai(senderID, `The second account name is ${response.records[1].Name}`);
+            messagesToSend.push('The name of the second account is : ' , response.records[1].Name);
           }
           if (response.records[2]) {
-            sendTextMessageWithDelai(senderID, `The third account name is ${response.records[2].Name}`);
+            messagesToSend.push('The name of the third account is : ' , response.records[2].Name);
           }
+          sendBulkTextMessagesWithDelai(senderID, messagesToSend);
         });
   });
 };
