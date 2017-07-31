@@ -20,6 +20,7 @@ var sendBulkTextMessages = (recipientID, messages) => {
         text: message
       }
     };
+    console.log(messageData);
 
     // If it's an important message, we will be waiting for answer
     if (textMessage === 'Test?') {
