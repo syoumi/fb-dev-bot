@@ -29,7 +29,6 @@ var getLastAccounts = (senderID) => {
             console.log('Account is null');
           }
         });
-      };
   });
 };
 
