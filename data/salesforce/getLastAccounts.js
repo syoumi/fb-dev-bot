@@ -33,7 +33,7 @@ var getLastAccounts = (senderID) => {
           if (response.records[2]) {
             messagesToSend.push('The name of the third account is : ' , response.records[2].Name);
           }
-          console.log(messagesToSend.length);
+          console.log('Messages to send lenght ' , messagesToSend.length);
           sendBulkTextMessagesWithDelai(senderID, messagesToSend);
         });
   });
