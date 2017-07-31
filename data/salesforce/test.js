@@ -30,10 +30,11 @@ link.login(SF_LOGIN, SF_PASSWORD, (err, userInfo) => {
   // ...
 });
 
-
-link.logout((err) => {
-  if (err) {
-    return console.error('Error occured while loggin out');
-  }
-  console.log('Logged out successfully');
-});
+setTimeout(function () {
+  link.logout((err) => {
+    if (err) {
+      return console.error('Error occured while loggin out');
+    }
+    console.log('Logged out successfully');
+  });
+}, 2000);
