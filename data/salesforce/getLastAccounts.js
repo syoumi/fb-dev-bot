@@ -6,7 +6,7 @@ var {sendTextMessageWithDelai} = require('./../../send/sendTextMessage');
 var getLastAccounts = (senderID) => {
   doLogin((link) => {
     var records = [];
-    link.query("SELECT Id, Name FROM Account LIMIT 3")
+    link.query("SELECT Id, Name FROM Account")
         .on('record', (record) => {
           records.push(record);
         })
