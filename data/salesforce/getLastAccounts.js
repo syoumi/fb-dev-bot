@@ -17,9 +17,13 @@ var getLastAccounts = (senderID) => {
           console.error('Error occured while getting last 3 accounts...');
         })
         .run({autoFetch: true});
-    sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
+    // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
     if (records[0]) {
+      console.log(`The first account name is ${records[0].Name}`);
       sendTextMessageWithDelai(senderID, `The first account name is ${records[0].Name}`);
+    }
+    else {
+      console.log('Account is null');
     }
 
     link.logout((err) => {
