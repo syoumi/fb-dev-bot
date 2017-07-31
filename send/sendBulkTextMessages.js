@@ -1,5 +1,7 @@
 // This file is for sending Bulk text messages
 
+const async = require('async');
+
 const {callSendAPI} = require('./sendViaFaceBookAPI');
 
 var {setWaiting} = require('./../include/config');
@@ -8,10 +10,7 @@ var {sendTypingOn} = require('./sendTypingOnOff');
 var {sendTextMessage} = require('./sendTextMessage');
 
 var sendBulkTextMessages = (recipientID, messages) => {
-  console.log('messages ' , messages);
-  messages.forEach((message) => {
-    console.log(`Recipient ID is ${recipientID}`);
-    // constructing the message object to send to the API
+  async.eachSeries(messages, (message, callback) => {
     var messageData = {
       recipient: {
         id: recipientID
@@ -20,21 +19,16 @@ var sendBulkTextMessages = (recipientID, messages) => {
         text: message
       }
     };
-    console.log('message data : ' , messageData);
 
     // If it's an important message, we will be waiting for answer
     if (message === 'Test?') {
       setWaiting();
     }
 
-    // calling the facebook API to send the data
-    // and making a small delai between messages
+    callSendAPI(messageData);
 
-    setTimeout(() => {
-      callSendAPI(messageData);
-    }, 2000);
-
-
+    callback();
+    
   });
 };
 
