@@ -21,16 +21,11 @@ var getLastAccounts = (senderID) => {
             return console.error('Error occured while executing query');
           }
           console.log(response);
-
+          // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
+          if (response.records[0]) {
+            sendTextMessageWithDelai(senderID, `The first account name is ${response.records[0].Name}`);
+          }
         });
-    // sendTextMessageWithDelai(senderID, 'Look, I found something for you !');
-    if (records[0]) {
-      console.log(`The first account name is ${records[0].Name}`);
-      sendTextMessageWithDelai(senderID, `The first account name is ${records[0].Name}`);
-    }
-    else {
-      console.log('records length is ' , records.length);
-    }
   });
 };
 
