@@ -31,15 +31,27 @@ var sendBulkTextMessages = (recipientID, messages) => {
 };
 
 var sendBulkTextMessagesWithDelai = (recipientID, messages) => {
-  messages.forEach((message) => {
+  async.eachSeries(messages, (message, callback) => {
     // Assuming thet the bot will be typing 3 characters per second
     // the delai will be
     var delai = ( message.length / 3 ) * 1000; // in Milliseconds
-
     sendTypingOn(recipientID);
-
     setTimeout(() => {
-      sendTextMessage(recipientID, message);
+      var messageData = {
+        recipient: {
+          id: recipientID
+        },
+        message: {
+          text: message
+        }
+      };
+
+      // If it's an important message, we will be waiting for answer
+      if (message === 'Test?') {
+        setWaiting();
+      }
+
+      syncCallSendAPI(messageData, callback);
     }, delai);
   });
 };
