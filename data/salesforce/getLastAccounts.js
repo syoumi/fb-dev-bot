@@ -37,6 +37,7 @@ var getLastAccounts = (senderID) => {
           console.log('Messages to send lenght ' , messagesToSend.length);
           // messagesToSend.forEach((message) => console.log(message));
           sendBulkTextMessages(senderID, messagesToSend);
+          console.log('JUST A TEST');
         });
   });
 };
