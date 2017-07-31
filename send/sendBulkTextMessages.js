@@ -6,7 +6,6 @@ var {setWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
 var {sendTypingOn} = require('./sendTypingOnOff');
 var {sendTextMessage} = require('./sendTextMessage');
-var {callSendAPI} = require('./sendViaFaceBookAPI');
 
 var sendBulkTextMessages = (recipientID, messages) => {
   console.log('messages ' , messages);
@@ -30,10 +29,10 @@ var sendBulkTextMessages = (recipientID, messages) => {
     // calling the facebook API to send the data
     callSendAPI(messageData);
 
-    // making a small delai between messages
-    setTimeout(() => {
-      // nothing to do...
-    }, 1000);
+    // // making a small delai between messages
+    // setTimeout(() => {
+    //   // nothing to do...
+    // }, 1000);
   });
 };
 
