@@ -25,7 +25,7 @@ var sendTextMessage = (reciepientID, textMessage) => {
   }
 
   // on appelle la fonction qui sera responsable d'envoyer le message à l'API FB
-  return callSendAPI(messageData);
+  callSendAPI(messageData);
 };
 
 var sendTextMessageWithDelai = (recipientID, textMessage) => {
@@ -36,7 +36,7 @@ var sendTextMessageWithDelai = (recipientID, textMessage) => {
   sendTypingOn(recipientID);
 
   setTimeout(function () {
-    return sendTextMessage(recipientID, textMessage);
+    sendTextMessage(recipientID, textMessage);
   }, delai);
 };
 
