@@ -74,12 +74,13 @@ var recievedMessage = (event) => {
         break;
 
       case 'Tu me connais?':
+        // Message initial
         sendTextMessage(senderID, 'Je pense que oui ...');
-
+        // Délai puis déclancher en train d'écrire
         setTimeout(function () {
           sendTypingOn(senderID);
         }, 1000);
-
+        // encore un délai puis envoi des informations back
         setTimeout(function () {
           getUserInfos(senderID, (fname, lname, ppicture, locale) => {
             sendTextMessage(senderID, `Vous êtes ${fname} ${lname}`);
@@ -89,6 +90,7 @@ var recievedMessage = (event) => {
         }, 3000);
 
         break;
+
       default:
         // faire un petit délai pour simuler l'écriture
         // 1. on rend le bot en train d'écriture
@@ -108,7 +110,7 @@ var recievedMessage = (event) => {
     // C'est le cas ou le message contient des pièces jointes
     // normalement ça doit être plus complexe, mais bon on va se contenter de ça
     // envoyer un message texte simple ...
-    sendTextMessage(senderID, 'We recieved your attachments successfully ^_^ !');
+    sendTextMessage(senderID, 'Pièce jointe bien reçue <3 ^_^ !');
   }
 
 };
