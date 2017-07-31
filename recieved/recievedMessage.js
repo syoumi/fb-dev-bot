@@ -10,6 +10,7 @@ var {setNotWaiting} = require('./../include/config');
 var {getWaiting} = require('./../include/config');
 var {getUserInfos} = require('./../retrieve/getUserInfos');
 var {sendPictureMessage} = require('./../send/sendPictureMessage');
+var {getAllAccounts} = require('./../data/salesforce/getAllAccounts');
 
 var recievedMessage = (event) => {
   // On extrait quelques informations
@@ -92,7 +93,7 @@ var recievedMessage = (event) => {
         break;
 
       case 'login':
-        require('./../data/salesforce/login');
+        getAllAccounts();
         break;
 
       default:
