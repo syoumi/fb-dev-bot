@@ -15,7 +15,7 @@ var link = new jsforce.Connection({
 link.login(SF_LOGIN, SF_PASSWORD, (err, userInfo) => {
   if (err) {
     // If there is any errors while connecting to SF, log the event and stop
-    return console.error('And error has occured while connecting to SF.');
+    return console.error('And error has occured while connecting to SF.', err);
   }
 
   // We can pick up accessToken and instanceUrl to make our
