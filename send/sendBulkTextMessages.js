@@ -10,7 +10,7 @@ var {sendTextMessage} = require('./sendTextMessage');
 var sendBulkTextMessages = (recipientID, messages) => {
   console.log('messages ' , messages);
   messages.forEach((message) => {
-    console.log('Iteration over messages, message ' , message);
+    console.log(`Recipient ID is ${reciepientID}`);
     // constructing the message object to send to the API
     var messageData = {
       recipient: {
