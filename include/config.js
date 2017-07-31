@@ -4,7 +4,7 @@ const FB_PAGE_TOKEN = 'EAAZAXZAcQxCAsBABD7nCVby8n7eI5NjzDDNYCNNnXrKZBsL0nAaLmA28
 const VERIFY_TOKEN = 'SIMPLE_VERIFY_TOKEN';
 const WAITING_BEFORE_PROMPT = 5000; // 5 secondes
 const SF_LOGIN = 'mahdi@syoumi.ma';
-const SF_PASSWORD = '27022008m';
+const SF_PASSWORD = '27022008mfIjapjaslyaU8Tbd7JuxNTFg';
 
 var waitingForAnswer = false;
 
