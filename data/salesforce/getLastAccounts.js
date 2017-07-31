@@ -27,6 +27,8 @@ var getLastAccounts = (senderID) => {
               if (response.records[1]) {
                 sendTextMessageWithDelai(senderID, `The second account name is ${response.records[1].Name}`);
               }
+            }).catch(() => {
+              console.log('Promise rejected');
             });
           }
 
