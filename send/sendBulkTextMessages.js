@@ -32,8 +32,8 @@ var sendBulkTextMessages = (recipientID, messages) => {
 
     // making a small delai between messages
     setTimeout(() => {
-      // nothing to do...
-    }, 1000);
+      console.log('...');
+    }, 2000);
   });
 };
 
