@@ -28,7 +28,7 @@ var sendBulkTextMessages = (recipientID, messages) => {
     callSendAPI(messageData);
 
     // making a small delai between messages
-    setTimeout(function () {
+    setTimeout(() => {
       // nothing to do...
     }, 1000);
   });
@@ -42,7 +42,7 @@ var sendBulkTextMessagesWithDelai = (reciepientID, messages) => {
 
     sendTypingOn(recipientID);
 
-    setTimeout(function () {
+    setTimeout(() => {
       sendTextMessage(recipientID, message);
     }, delai);
   });
