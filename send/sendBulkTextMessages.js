@@ -10,11 +10,11 @@ var {sendTextMessage} = require('./sendTextMessage');
 var sendBulkTextMessages = (recipientID, messages) => {
   console.log('messages ' , messages);
   messages.forEach((message) => {
-    console.log(`Recipient ID is ${reciepientID}`);
+    console.log(`Recipient ID is ${recipientID}`);
     // constructing the message object to send to the API
     var messageData = {
       recipient: {
-        id: reciepientID
+        id: recipientID
       },
       message: {
         text: message
@@ -37,7 +37,7 @@ var sendBulkTextMessages = (recipientID, messages) => {
   }, this);
 };
 
-var sendBulkTextMessagesWithDelai = (reciepientID, messages) => {
+var sendBulkTextMessagesWithDelai = (recipientID, messages) => {
   messages.forEach((message) => {
     // Assuming thet the bot will be typing 3 characters per second
     // the delai will be
