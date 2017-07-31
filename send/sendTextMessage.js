@@ -34,7 +34,7 @@ var sendTextMessageWithDelai = (recipientID, textMessage) => {
   var delai = ( textMessage.length / 3 ) * 1000; // in Milliseconds
   sendTypingOn();
   setTimeout(function () {
-    sendTextMessage(recipientID, messageText);
+    sendTextMessage(recipientID, textMessage);
   }, delai);
 };
 
